@@ -4,7 +4,7 @@
 	"description": "Issue Tracker Boilerplate",
 	"main": "server.js",
 	"scripts": {
-		"start": "node server.js",
+		"start": "nodemon server.js",
 		"test": "mocha --timeout 5000 --recursive --exit --ui tdd tests/"
 	},
 	"dependencies": {
@@ -26,5 +26,8 @@
 		"hyperdev",
 		"express"
 	],
-	"license": "MIT"
+	"license": "MIT",
+	"devDependencies": {
+		"nodemon": "^2.0.9"
+	}
 }
