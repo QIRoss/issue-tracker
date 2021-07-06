@@ -1,7 +1,6 @@
 'use strict';
-
+const mongoose = require('mongoose');
 module.exports = (app) => {
-  const mongoose = require('mongoose');
 
   mongoose.connect(process.env.DB_URI, {useNewUrlParser: true, useUnifiedTopology: true});
 
@@ -34,6 +33,7 @@ module.exports = (app) => {
     .post((req, res) => {
       const project = req.params.project;
       const body = req.body;
+      // console.log(req.body, req.params, req.query)
       if(!body.issue_title || !body.issue_text || !body.created_by)
         res.json({error: 'required field(s) missing'});
       else {
@@ -46,9 +46,9 @@ module.exports = (app) => {
           open: true,
           project: project
         });
-        issue.save((err,data) => {
+        issue.save((err,data) => 
           res.json(data)
-        })
+        )
       }
     })
     
